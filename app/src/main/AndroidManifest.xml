@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:label="@string/title_activity_second" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dev.diegorueda.desingdemo.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

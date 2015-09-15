@@ -1,5 +1,7 @@
 package com.dev.diegorueda.desingdemo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +32,14 @@ public class DesignDemoRecyclerAdapter extends RecyclerView.Adapter<DesignDemoRe
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         String item = mItems.get(i);
         viewHolder.mTextView.setText(item);
+
+        viewHolder.mTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                context.startActivity(new Intent(context, SecondActivity.class));
+            }
+        });
     }
 
     @Override
