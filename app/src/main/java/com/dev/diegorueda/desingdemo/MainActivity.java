@@ -13,6 +13,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(findViewById(R.id.drawer_layout), "Soy un Snackbar", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
+                Snackbar.make(findViewById(R.id.coordinator), "Soy un Snackbar", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(MainActivity.this, "Snackbar Action link", Toast.LENGTH_LONG).show();
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             Bundle args = getArguments();
             int tabPosition = args.getInt(TAB_POSITION);
 
-           /* ArrayList<String> items = new ArrayList<String>();
+            ArrayList<String> items = new ArrayList<String>();
             for (int i = 0; i < 50; i++) {
                 items.add("Tab #" + tabPosition + " item #" + i);
             }
@@ -117,13 +119,10 @@ public class MainActivity extends AppCompatActivity {
             View v =  inflater.inflate(R.layout.fragment_list_view, container, false);
             RecyclerView recyclerView = (RecyclerView)v.findViewById(R.id.recyclerview);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            recyclerView.setAdapter(new DesignDemoRecyclerAdapter(items));*/
+            recyclerView.setAdapter(new DesignDemoRecyclerAdapter(items));
 
-            TextView tv = new TextView(getActivity());
-            tv.setGravity(Gravity.CENTER);
-            tv.setText("Text in Tab #" + tabPosition);
 
-            return tv;
+            return v;
         }
     }
 
